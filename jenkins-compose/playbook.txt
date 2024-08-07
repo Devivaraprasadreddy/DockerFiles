@@ -1,0 +1,29 @@
+---------------------------------jenkins installation on ubuntu---------------------------------
+
+Jenkins installation on docker envirnmet 
+
+create docekr compose file file 
+
+docker-compose.ym
+
+version: '3'
+services:
+  jenkins:
+    image: jenkins/jenkins
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins-net
+
+networks:
+  jenkins-net:
+volumes:
+  jenkins_home:
+
+  
+  
+run the command docker-compose up -d

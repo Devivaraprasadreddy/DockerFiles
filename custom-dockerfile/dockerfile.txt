@@ -1,0 +1,17 @@
+#How to create custom images
+vim Dockerfile
+
+# Use an official Apache base image
+FROM httpd:latest
+
+# Set the working directory to /usr/local/apache2/htdocs/
+WORKDIR /usr/local/apache2/htdocs/
+
+# Copy the content of the local src directory to the working directory
+
+
+# Expose port 80 to the outside world
+EXPOSE 80
+
+# Command to start Apache when the container runs
+CMD ["httpd", "-D", "FOREGROUND"]

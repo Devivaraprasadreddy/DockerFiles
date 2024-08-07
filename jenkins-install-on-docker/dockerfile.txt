@@ -1,0 +1,24 @@
+# docekr compose (how to write compose file for docker-compose)
+
+docker-compose.yml
+
+Jenkins installation on docker
+
+version: '3'
+services:
+  jenkins:
+    image: jenkins/jenkins
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins-net
+
+networks:
+  jenkins-net:
+  
+  
+  docker-compose up -d

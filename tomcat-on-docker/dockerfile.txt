@@ -1,0 +1,19 @@
+# run java application on docker
+
+docker run -d --name mytomcat -v /mnt/myvolume:/usr/local/tomcat/webapps -p 8080:8080 tomcat:latest
+wget https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/sample.war
+
+# Docker file
+FROM tomcat:latest
+
+WORKDIR /usr/local/tomcat/
+
+COPY ./sample.war ./webapps
+
+EXPOSE 8080
+
+# Start Tomcat Server
+CMD ["catalina.sh","run"]
+
+docker build -t my-tomcat-images .
+ docker run -d --name mytomcat -p 8081:8080 my-tomcat-images:latest
